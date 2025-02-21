@@ -1,8 +1,9 @@
 function checkForAds() {
     const video = document.querySelector("video");
+    const isVideoPaused = video && video.paused;
     const isAdPlaying = document.querySelector(".ad-showing, .ytp-ad-player-overlay, .ytp-ad-text");
   
-    if (video) {
+    if (!isVideoPaused) {
       if (isAdPlaying) {
         video.muted = true; // Mute during ads
         console.log("Ad detected: Muting...");
